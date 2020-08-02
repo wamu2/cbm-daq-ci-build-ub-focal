@@ -6,8 +6,6 @@ set -x
 
 # OS and compiler version info
 grep VERSION /etc/os-release
-which $CXX
-$CXX --version | head -1
 
 # install googletest
 cd /tmp
