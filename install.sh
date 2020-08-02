@@ -4,7 +4,7 @@ set -o pipefail
 set -e
 set -x
 
-# OS and compiler version info
+# OS version info
 grep VERSION /etc/os-release
 
 # install googletest
