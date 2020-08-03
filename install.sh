@@ -28,8 +28,10 @@ git clone https://github.com/msgpack/msgpack-c.git
 cd msgpack-c
 git checkout cpp_master
 git checkout $VTAG_MSGPACK_CPP
-cd include
-cp -a * /usr/local/include
+mkdir build
+cd build
+cmake -DMSGPACK_BUILD_TESTS=OFF -DMSGPACK_BUILD_EXAMPLES=OFF ..
+make install
 
 # drop tmp files
 cd ..
