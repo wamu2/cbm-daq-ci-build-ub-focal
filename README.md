@@ -6,3 +6,9 @@ based tests.
 
 It is based on the OS base image
 [cbm-daq-ci-base-ub-focal](https://github.com/wamu2/cbm-daq-ci-base-ub-focal).
+
+Installed packages and reasoning behind:
+- `googletest`: used by msgpack verification
+- `msgpack`: install latest version (C,C++ splitt now, C++ header only)
+- `libzmq`: install latest version
+- `cppzmp`: install latest version to get C++11 aware implementation
