@@ -52,7 +52,7 @@ cd cppzmq
 git checkout $VTAG_CPPZMQ
 mkdir build
 cd build
-cmake ..
+cmake -DCPPZMQ_BUILD_TESTS=OFF ..
 time make -j $(nproc)
 make install
 
