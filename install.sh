@@ -16,7 +16,8 @@ grep VERSION /etc/os-release
 nproc
 
 # setup directories
-mkdir -p ~/dca_prerequisites
+dcaroot=~/dca
+mkdir -p $dcaroot/prerequisites
 mkdir -p /tmp/dca_prerequisites
 
 # install googletest
@@ -26,7 +27,7 @@ cd googletest
 git checkout $VTAG_GTEST
 mkdir build
 cd build
-cmake -DCMAKE_INSTALL_PREFIX=~/dca_prerequisites ..
+cmake -DCMAKE_INSTALL_PREFIX=$dcaroot/prerequisites ..
 make -j $(nproc)
 make install
 
@@ -38,7 +39,7 @@ git checkout cpp_master
 git checkout $VTAG_MSGPACK_CPP
 mkdir build
 cd build
-cmake -DCMAKE_INSTALL_PREFIX=~/dca_prerequisites \
+cmake -DCMAKE_INSTALL_PREFIX=$dcaroot/prerequisites \
       -DMSGPACK_BUILD_TESTS=OFF -DMSGPACK_BUILD_EXAMPLES=OFF ..
 make install
 
@@ -49,7 +50,7 @@ cd libzmq
 git checkout $VTAG_LIBZMQ
 mkdir build
 cd build
-cmake -DCMAKE_INSTALL_PREFIX=~/dca_prerequisites ..
+cmake -DCMAKE_INSTALL_PREFIX=$dcaroot/prerequisites ..
 time make -j $(nproc)
 make install
 
@@ -60,7 +61,8 @@ cd cppzmq
 git checkout $VTAG_CPPZMQ
 mkdir build
 cd build
-cmake -DCMAKE_INSTALL_PREFIX=~/dca_prerequisites -DCPPZMQ_BUILD_TESTS=OFF ..
+cmake -DCMAKE_INSTALL_PREFIX=$dcaroot/prerequisites \
+      -DCPPZMQ_BUILD_TESTS=OFF ..
 time make -j $(nproc)
 make install
 
@@ -71,7 +73,7 @@ cd fmt
 git checkout $VTAG_FMTLIB
 mkdir build
 cd build
-cmake -DCMAKE_INSTALL_PREFIX=~/dca_prerequisites ..
+cmake -DCMAKE_INSTALL_PREFIX=$dcaroot/prerequisites ..
 time make -j $(nproc)
 make install
 
